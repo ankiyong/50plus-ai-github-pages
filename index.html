@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#073edb">
+<meta name="description" content="50플러스 AI 활용 4주 과정. 주차를 선택하고 AI와 함께 웹페이지와 앱을 만들어 보세요.">
+<title>주차 선택 · 50플러스 AI 교실</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23ffe53e' d='M4 4h24v24H4z'/%3E%3C/svg%3E">
+<style>
+@font-face{font-family:"Pretendard";src:url("./assets/Pretendard-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Pretendard Black";src:url("./assets/Pretendard-Black.otf") format("opentype");font-weight:900;font-display:swap}
+
+:root{--ink:#19183e;--cream:#fff9df;--yellow:#ffe53e;--purple:#8451cf;--cyan:#36d8e7}
+*{box-sizing:border-box}html{min-height:100%}body{margin:0;min-height:100dvh;color:var(--ink);font-family:Pretendard;font-synthesis:none;background:#0764e6}
+a,button{-webkit-tap-highlight-color:transparent}button{font:inherit}a:focus-visible,button:focus-visible{outline:4px solid #ff63bc;outline-offset:6px}
+.scenery{position:fixed;inset:0;overflow:hidden;z-index:-1;pointer-events:none;background:linear-gradient(180deg,#073edb 0%,#008cf1 48%,#22d9cd 87%,#2fd59a 100%)}
+.sun{position:absolute;right:9%;top:16%;width:110px;height:110px;background:#ffed48;clip-path:polygon(25% 0,75% 0,75% 10%,90% 10%,90% 25%,100% 25%,100% 75%,90% 75%,90% 90%,75% 90%,75% 100%,25% 100%,25% 90%,10% 90%,10% 75%,0 75%,0 25%,10% 25%,10% 10%,25% 10%)}
+.cloud{position:absolute;left:5%;top:18%;width:85px;height:25px;background:#fff3c4;box-shadow:17px -17px #fff3c4,55px -30px #fff3c4,89px -7px #fff3c4,17px 9px #a9e0db}.cloud.two{left:65%;top:10%;transform:scale(.65)}
+.city{position:absolute;left:-1%;right:-1%;bottom:0;display:flex;align-items:flex-end;gap:10px;height:24%;opacity:.9}.building{flex:1;background-color:#67528e;border:6px solid #67528e;border-bottom:0;background-image:repeating-linear-gradient(0deg,transparent 0 15px,#67528e 15px 26px),repeating-linear-gradient(90deg,#bc9ae8 0 9px,transparent 9px 23px)}
+.ground{position:absolute;bottom:0;left:0;right:0;height:16px;background:#21bf6e;border-top:6px solid #9dea5c}
+.site-header{height:70px;padding:0 max(24px,calc((100vw - 1280px)/2));display:flex;align-items:center;justify-content:space-between;background:#12183feb;color:#fff;border-bottom:4px solid #5bdeec;gap:20px}
+.brand{display:flex;align-items:center;gap:13px;font-family:"Pretendard Black";font-size:23px;white-space:nowrap}.brand-mark{width:25px;height:25px;background:var(--yellow);box-shadow:4px 4px #030b2f}.course-badge{font-size:14px;border:1px solid #6b73ab;padding:7px 12px;color:#e4e8ff}
+main{width:min(1240px,calc(100% - 48px));margin:0 auto;padding:56px 0 62px}
+.hero{text-align:center;margin:0 auto 40px;max-width:900px}.tag{display:inline-block;background:#824cc6;border:3px solid var(--ink);box-shadow:4px 4px var(--ink);color:#fff;padding:7px 16px;font-family:"Pretendard Black";font-size:16px;margin-bottom:24px}
+h1{margin:0;color:#fff;font-family:"Pretendard Black";font-size:clamp(36px,4.3vw,62px);line-height:1.2;letter-spacing:-.045em;text-shadow:3px 3px var(--ink),-2px -2px var(--ink),2px -2px var(--ink),-2px 2px var(--ink)}
+h1 em{font-style:normal;color:var(--yellow)}.intro{font-size:21px;color:white;line-height:1.6;text-shadow:1px 2px #21538d;margin:22px 0 0}.intro strong{font-family:"Pretendard Black"}
+.course-panel{background:var(--cream);border:4px solid var(--ink);box-shadow:8px 8px #15173f80;padding:26px 26px 28px;position:relative}
+.course-panel::before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:repeating-linear-gradient(90deg,var(--cyan) 0 18px,var(--purple) 18px 36px,var(--yellow) 36px 54px)}
+.panel-heading{display:flex;justify-content:space-between;align-items:center;gap:20px;margin:4px 0 24px}.panel-heading h2{margin:0;font-size:25px;font-family:"Pretendard Black";letter-spacing:-.025em}.panel-heading p{margin:0;font-size:15px;color:#5f5b76}
+.weeks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.week{position:relative;display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-height:284px;padding:22px 20px;border:3px solid var(--ink);box-shadow:5px 5px #39255d;background:#fff;color:var(--ink);border-radius:0;text-decoration:none;line-height:1.5}
+.week.open{background:#f1e8ff;transition:transform .15s,box-shadow .15s}.week.open:hover{transform:translate(-2px,-3px);box-shadow:7px 8px #39255d}.week.open:active{transform:translate(3px,3px);box-shadow:2px 2px #39255d}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:13px;line-height:1.2;font-family:"Pretendard Black";padding:6px 9px;background:#ffe53e;border:2px solid var(--ink)}
+.week-title{font-family:"Pretendard Black";font-size:40px;line-height:1.2;letter-spacing:-.04em;margin-top:22px}.week-description{font-size:18px;line-height:1.6;margin-top:12px;margin-bottom:24px;word-break:keep-all}
+.week-action{width:100%;margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:10px;border-top:2px solid #a98dcb;padding-top:14px;font-family:"Pretendard Black";font-size:17px}
+.arrow{font-size:23px;line-height:1}.week.locked{background:#eeedf2;border-color:#7a768d;box-shadow:5px 5px #a4a0b2;color:#676279;cursor:not-allowed;opacity:1}
+.locked .status{background:#dedbe6;border-color:#aaa4bc;color:#5e586f}.lock{width:14px;height:16px;flex:none}.locked .week-description{color:#706b7f}.locked .week-action{border-color:#c6c0d1;color:#706b7f;font-size:15px;font-family:Pretendard}
+.panel-note{display:flex;align-items:center;justify-content:center;gap:8px;color:#625b76;font-size:14px;margin:26px 0 0}.panel-note svg{width:13px;height:15px;flex:none}
+.site-footer{text-align:center;padding:26px 16px 0;color:#fff;font-size:14px;text-shadow:1px 1px #273a75;line-height:1.6}
+@media(min-width:1500px){main{padding-top:75px}.hero{margin-bottom:48px}.week{min-height:300px}}
+@media(max-width:1000px){.weeks{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.week{min-height:260px}.week-description br{display:none}.sun{right:5%;top:14%;width:80px;height:80px}.hero{max-width:650px}.cloud{opacity:.6}.panel-heading p{display:none}main{padding-top:40px}}
+@media(max-width:540px){.site-header{height:62px;padding:0 18px}.brand{font-size:18px;gap:10px}.brand-mark{width:20px;height:20px}.course-badge{font-size:12px;padding:5px 8px}main{width:calc(100% - 28px);padding:34px 0}.tag{font-size:13px;padding:6px 10px;margin-bottom:20px}h1{font-size:35px;line-height:1.25}.intro{font-size:17px;margin-top:18px}.hero{margin-bottom:28px}.course-panel{padding:22px 18px;border-width:3px;box-shadow:5px 5px #15173f80}.panel-heading{margin-bottom:18px}.panel-heading h2{font-size:22px}.weeks{grid-template-columns:1fr;gap:18px}.week{min-height:220px;padding:20px}.week-title{font-size:34px;margin-top:14px}.week-description{font-size:18px;margin-top:8px;margin-bottom:20px}.week.locked{min-height:180px}.locked .week-title{font-size:31px}.panel-note{font-size:13px;align-items:flex-start;line-height:1.5}.panel-note svg{margin-top:2px}.sun{top:12%;right:-14px;width:72px;height:72px;opacity:.7}.cloud{left:-45px;top:12%;transform:scale(.7)}.cloud.two{display:none}.city{height:20%}}
+@media(prefers-reduced-motion:reduce){.week.open{transition:none}}
+
+</style>
+</head>
+<body>
+<div class="scenery" aria-hidden="true"><div class="sun"></div><div class="cloud"></div><div class="cloud two"></div><div class="city"><i class="building" style="height:45%"></i><i class="building" style="height:75%"></i><i class="building" style="height:50%"></i><i class="building" style="height:92%"></i><i class="building" style="height:58%"></i><i class="building" style="height:66%"></i><i class="building" style="height:42%"></i><i class="building" style="height:86%"></i><i class="building" style="height:62%"></i><i class="building" style="height:70%"></i><i class="building" style="height:48%"></i><i class="building" style="height:90%"></i><i class="building" style="height:55%"></i><i class="building" style="height:80%"></i><i class="building" style="height:40%"></i><i class="building" style="height:68%"></i></div><div class="ground"></div></div>
+<header class="site-header"><div class="brand"><span class="brand-mark" aria-hidden="true"></span>50플러스 AI 교실</div><span class="course-badge">총 4주 과정</span></header>
+<main>
+<section class="hero" aria-labelledby="course-title"><span class="tag">말로 설명하고, 나만의 것으로 만들어요</span><h1 id="course-title"><em>AI와 함께 만드는</em><br>나의 웹페이지와 앱</h1><p class="intro">차근차근 배우는 4주.<br><strong>시작할 수업을 선택해 주세요.</strong></p></section>
+<section class="course-panel" aria-labelledby="weeks-title"><div class="panel-heading"><h2 id="weeks-title">주차 선택</h2><p>지금은 1주차 수업이 열려 있어요.</p></div>
+<div class="weeks">
+<a class="week open" href="./50plus_AI_Week1.html" aria-label="1주차, 프롬프트 작성법과 웹 개발 기초, 수업 시작하기"><span class="status">수강 가능</span><span class="week-title">1주차</span><span class="week-description">프롬프트 작성법과<br>웹 개발 기초</span><span class="week-action">수업 시작하기<span class="arrow" aria-hidden="true">→</span></span></a>
+<button class="week locked" type="button" disabled aria-label="2주차, 준비 중, 아직 열리지 않은 수업"><span class="status"><svg class="lock" viewBox="0 0 16 18" fill="none" aria-hidden="true"><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/><path d="M2 8h12v9H2z" fill="currentColor"/><path d="M8 11v3" stroke="#eeedf2" stroke-width="2"/></svg>준비 중</span><span class="week-title">2주차</span><span class="week-description">다음 수업을<br>준비하고 있어요.</span><span class="week-action">아직 열리지 않았어요</span></button><button class="week locked" type="button" disabled aria-label="3주차, 준비 중, 아직 열리지 않은 수업"><span class="status"><svg class="lock" viewBox="0 0 16 18" fill="none" aria-hidden="true"><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/><path d="M2 8h12v9H2z" fill="currentColor"/><path d="M8 11v3" stroke="#eeedf2" stroke-width="2"/></svg>준비 중</span><span class="week-title">3주차</span><span class="week-description">다음 수업을<br>준비하고 있어요.</span><span class="week-action">아직 열리지 않았어요</span></button><button class="week locked" type="button" disabled aria-label="4주차, 준비 중, 아직 열리지 않은 수업"><span class="status"><svg class="lock" viewBox="0 0 16 18" fill="none" aria-hidden="true"><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/><path d="M2 8h12v9H2z" fill="currentColor"/><path d="M8 11v3" stroke="#eeedf2" stroke-width="2"/></svg>준비 중</span><span class="week-title">4주차</span><span class="week-description">다음 수업을<br>준비하고 있어요.</span><span class="week-action">아직 열리지 않았어요</span></button>
+</div>
+<p class="panel-note"><svg class="lock" viewBox="0 0 16 18" fill="none" aria-hidden="true"><path d="M4 8V5a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="2"/><path d="M2 8h12v9H2z" fill="currentColor"/><path d="M8 11v3" stroke="#eeedf2" stroke-width="2"/></svg><span>자물쇠가 있는 수업은 아직 열리지 않았어요.</span></p>
+</section>
+<footer class="site-footer">원하는 것을 설명하고, 결과를 보며 함께 고쳐요.</footer>
+</main>
+</body></html>

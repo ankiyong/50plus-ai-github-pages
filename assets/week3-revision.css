@@ -1,0 +1,90 @@
+/* Revised lesson: definitions, concrete examples, and four explicit work stages. */
+.revised h2{font-size:3.15cqw;line-height:1.22}
+.revised.opening h2{font-size:4.8cqw;line-height:1.12}
+.revised .content{gap:1.3cqw}
+.revised .grow{flex:1;min-height:0}
+.revised .panel{display:flex;flex-direction:column;justify-content:center;gap:.8cqw;padding:1.65cqw}
+.revised .panel h3{margin:0;font-size:2cqw}
+.revised .panel p{font-size:1.7cqw;line-height:1.65}
+.revised .panel .small{font-size:1.1cqw;line-height:1.5}
+.revised .panel p+p{margin:0}
+.revised .panel .card-key{font-family:'Pretendard Black';font-size:1.9cqw;line-height:1.4}
+.revised .big-number{display:block;font-size:4.7cqw;line-height:1;margin:0}
+.revised .threecol.grow .panel{justify-content:space-evenly}
+.revised .content>.reviewtable{flex:1;min-height:0}
+.revised .reviewtable{font-size:1.7cqw;line-height:1.45}
+.revised .reviewtable th{padding:.85cqw 1.2cqw}
+.revised .reviewtable td{padding:.9cqw 1.2cqw}
+.revised .reviewtable td:first-child{width:25%}
+.revised .reviewtable td,.revised .reviewtable th{vertical-align:middle}
+.revised .ribbon{font-size:1.45cqw;line-height:1.5;padding:.8cqw 1.1cqw;flex:none;margin-top:0}
+.revised .actions{flex:none;gap:.8cqw}
+.revised .btn{font-size:1.25cqw;padding:.65cqw 1.05cqw}
+.revised .definition{font-size:1.9cqw;line-height:1.6;margin:0}
+.revised .definition strong{font-size:2.25cqw}
+.revised .flow .node{padding:1.5cqw 1cqw;gap:1.05cqw;justify-content:center}
+.revised .flow .node p{font-size:1.55cqw;line-height:1.65}
+.revised .flow .node h3{font-size:1.95cqw;margin:0}
+.revised .flow .big-number{font-size:4cqw}
+.revised .example-line{background:#eee2ff;border:1px solid #ab91c7;display:flex;align-items:center;gap:1.2cqw;padding:1cqw 1.3cqw;font-size:1.5cqw;line-height:1.5;flex:none}
+.revised .example-line b{flex:none}
+.revised .accent{background:#ffe2c8;color:#8c3600;padding:.5cqw .7cqw}
+.revised .route{display:flex;flex-direction:column;gap:.65cqw;line-height:1.45;font-size:1.65cqw}
+.revised .route span:nth-child(even){color:#685b78;font-size:1.3cqw}
+.opening .content>.flow{flex:1;margin:0}
+.opening .twocol{min-height:10cqw}
+.planning-cards{flex:1;min-height:0}
+.planning-cards .panel{justify-content:space-evenly}
+.planning-cards .panel h3{order:0}.planning-cards .big-number{order:-1}
+.prd-layout{display:grid;grid-template-columns:.85fr 1.35fr;gap:2.2cqw;flex:1;min-height:0}
+.prd-explanation{display:flex;flex-direction:column;gap:1.1cqw;justify-content:space-between;min-height:0}
+.definition-list{display:grid;gap:.65cqw;margin:0}
+.definition-list div{border-bottom:1px solid #c8bbd5;padding:.45cqw 0;display:flex;gap:1cqw;font-size:1.6cqw}
+.definition-list dt{font-family:'Pretendard Black';min-width:6.7cqw}.definition-list dd{margin:0}
+.prd-explanation .btn{align-self:flex-start}
+.prd-figure{display:flex;flex-direction:column;gap:.5cqw;min-height:0}
+.prd-image-button{flex:1;min-height:0;width:100%;border:2px solid var(--ink);padding:0;background:#fff;overflow:hidden;cursor:zoom-in}
+.prd-image-button img{display:block;width:100%;height:100%;object-fit:contain}
+.prd-figure figcaption{font-size:1.1cqw;line-height:1.4;color:#5c5373}
+#prdImageModal{width:min(1100px,94vw);max-height:90dvh}
+#prdImageModal>img{display:block;width:100%;height:auto;margin-top:18px}
+.lesson-step{display:flex;align-items:center;gap:1cqw;border-bottom:2px solid #b29bcf;padding-bottom:.8cqw;font-size:2.2cqw}
+.lesson-step b{background:var(--ink);color:white;padding:.35cqw .9cqw}
+.lesson-step small{font-size:1.35cqw;margin-left:auto}
+.revised .splitprompt{gap:1.8cqw;grid-template-columns:1fr 1.45fr}
+.revised .splitprompt>div:first-child>.panel{flex:1}
+.revised .splitprompt>.prompt{display:flex;gap:0}
+.revised .prompt pre{font-size:1.5cqw;line-height:1.7;max-height:27cqw}
+.revised .prompt[data-prompt-card=needs] pre,.revised .prompt[data-prompt-card=prdRequest] pre{display:flex;align-items:center;white-space:pre-wrap;font-size:2.5cqw;padding:2cqw}
+.revised .mock-field{background:#fff;border:1.5px solid #9c8daa;padding:.75cqw;display:flex;flex-direction:column;gap:.4cqw;font-size:1.45cqw}
+.revised .mock-field b{font-size:1.6cqw}
+.revised .mock-action{background:var(--yellow);border:2px solid var(--ink);padding:1cqw .75cqw;text-align:center;font:900 1.55cqw/1.4 'Pretendard Black'}
+.revised .mock-result{background:white;border:1px solid #a896b9;padding:1cqw;display:flex;flex-direction:column;gap:.65cqw;font-size:1.35cqw}
+.revised .mock-result strong{font-size:2.6cqw}
+.revised .phone-sketch{width:11cqw;margin:auto;border:3px solid var(--ink);border-radius:1cqw;display:grid;gap:.5cqw;padding:1.2cqw .8cqw;background:white;font-size:1.1cqw;text-align:center}
+.revised .phone-sketch span{padding:.5cqw;background:#eee2ff}.revised .phone-sketch b{background:var(--yellow);padding:.6cqw}
+.handoff{display:grid;grid-template-columns:1fr 2cqw 1.15fr;gap:1.5cqw}
+.handoff>div:first-child{display:grid;gap:1.2cqw}.handoff>.panel{gap:2cqw}
+.revised .compact-list{padding-left:1.3em;margin:0;font-size:1.65cqw;line-height:1.8}
+.four-deliverables{display:grid;grid-template-columns:1fr 1fr;gap:1.5cqw}
+.result-table .reviewtable td:first-child{width:18%}
+.result-table .reviewtable th:nth-child(2){width:39%}
+@media screen and (max-width:760px){
+ .revised h2,.revised.opening h2{font-size:29px}.revised .content{gap:18px}.revised .grow{flex:none;min-height:auto}
+ .revised .panel{gap:14px;padding:20px}.revised .panel h3{font-size:21px}.revised .panel p{font-size:17px}.revised .panel p.card-key{font-size:19px}.revised .panel .small{font-size:13px}
+ .revised .big-number,.revised .flow .big-number{font-size:44px}.revised .ribbon{font-size:15px;padding:14px}.revised .actions{gap:10px}.revised .btn{font-size:14px;padding:10px 12px}
+ .revised .definition{font-size:18px}.revised .definition strong{font-size:22px}.revised .flow .node{padding:20px;gap:14px}.revised .flow .node p{font-size:17px}.revised .flow .node h3{font-size:21px}
+ .revised .example-line{display:flex;flex-direction:column;align-items:flex-start;gap:8px;font-size:16px;padding:16px}.revised .accent{padding:8px}
+ .revised .route{gap:10px;font-size:17px}.revised .route span:nth-child(even){font-size:14px}.planning-cards{flex:none}.opening .twocol{min-height:0}
+ .revised .reviewtable{font-size:16px;table-layout:auto}.revised .reviewtable th,.revised .reviewtable td{padding:12px 9px}.revised .reviewtable td:first-child{width:31%}
+ .prd-layout{display:flex;flex-direction:column;gap:22px;min-height:auto;flex:none}.prd-explanation{gap:18px}.definition-list{gap:10px}.definition-list div{gap:12px;font-size:17px;padding:8px 0}.definition-list dt{min-width:82px}
+ .prd-figure{gap:8px}.prd-image-button{flex:none;min-height:0}.prd-image-button img{height:auto}.prd-figure figcaption{font-size:13px}
+ .lesson-step{flex-wrap:wrap;gap:12px;font-size:23px;padding-bottom:14px}.lesson-step b{padding:6px 12px}.lesson-step small{font-size:14px;margin:0;width:100%}
+ .revised .splitprompt{grid-template-columns:1fr;gap:18px}.revised .splitprompt>div:first-child>.panel{flex:none}.revised .prompt pre{font-size:16px;padding:18px;max-height:420px}
+ .revised .prompt[data-prompt-card=needs] pre,.revised .prompt[data-prompt-card=prdRequest] pre{font-size:22px;min-height:160px;padding:22px}
+ .revised .mock-field{padding:12px;gap:6px;font-size:16px}.revised .mock-field b{font-size:18px}.revised .mock-action{padding:15px;font-size:18px}.revised .mock-result{padding:16px;gap:10px;font-size:15px}.revised .mock-result strong{font-size:27px}
+ .revised .phone-sketch{width:160px;border-radius:14px;gap:8px;padding:18px 12px;font-size:15px}.revised .phone-sketch span,.revised .phone-sketch b{padding:8px}
+ .handoff{display:flex;flex-direction:column;gap:18px}.handoff>div:first-child{gap:18px}.handoff>.panel{gap:20px}.revised .compact-list{font-size:17px}.four-deliverables{grid-template-columns:1fr;gap:18px}
+ .result-table .reviewtable{font-size:14px}.result-table .reviewtable th,.result-table .reviewtable td{padding:10px 6px}
+}
+@media print{.revised h2{font-size:3.15cqw!important}.revised.opening h2{font-size:4.8cqw!important}.revised .prompt pre{max-height:27cqw!important}.prd-image-button{border:1px solid var(--ink)}.prd-figure figcaption{color:var(--ink)}}

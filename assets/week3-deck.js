@@ -2,7 +2,9 @@
 'use strict';
 const data=window.WEEK3_DATA,meta=JSON.parse(document.getElementById('slide-meta').textContent),slides=[...document.querySelectorAll('.slide')];
 const $=selector=>document.querySelector(selector);
-const states=slides.map(()=>0);let index=0,overview=false,printing=false,lastFocus=null,activePrompt=null,toastTimer;
+const states=slides.map(()=>0);let index=0,overview=false,printing=false,activePrompt=null,toastTimer;
+// Each dialog remembers its opener so nested PRD views restore focus correctly.
+const dialogOpeners=new WeakMap();
 function notify(text){$('#toast').textContent=text;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,2600);}
 function applyStep(slide,n,complete=false){
  slide.dataset.step=String(n);
@@ -26,7 +28,7 @@ function go(n,step=0){index=Math.max(0,Math.min(slides.length-1,n));states[index
 function next(){if(states[index]<(meta[index].steps||0)){states[index]++;update();}else if(index<slides.length-1)go(index+1);}
 function previous(){if(states[index]>0){states[index]--;update();}else if(index>0)go(index-1,meta[index-1].steps||0);}
 function readHash(){const m=location.hash.match(/^#slide-(\d+)(?:-step-(\d+))?$/);go(m?Number(m[1])-1:0,m?Number(m[2]||0):0);}
-function showDialog(dialog){lastFocus=document.activeElement;dialog.showModal();}
+function showDialog(dialog){dialogOpeners.set(dialog,document.activeElement);dialog.showModal();}
 function closeDialog(dialog){dialog.close();}
 function openToc(){const grid=$('#tocGrid');grid.replaceChildren();meta.forEach((item,i)=>{const button=document.createElement('button');button.type='button';button.className='tocitem';button.dataset.goto=i;button.setAttribute('aria-current',String(i===index));const n=document.createElement('b');n.textContent=String(i+1).padStart(2,'0');const span=document.createElement('span');const small=document.createElement('small');small.textContent=item.chapter;span.append(small,document.createTextNode(item.title));button.append(n,span);grid.append(button);});showDialog($('#tocModal'));}
 function showPrompt(key){if(!Object.hasOwn(data.prompts,key))return;activePrompt=key;$('#modalTitle').textContent=key==='prd'?'점심 메뉴 추천 PRD':'요청문 크게 보기';$('#modalPrompt').textContent=data.prompts[key];showDialog($('#promptModal'));}
@@ -42,8 +44,8 @@ $('#noteClose').addEventListener('click',()=>{document.body.classList.remove('no
 $('#fullscreenButton').addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await document.documentElement.requestFullscreen();}catch{notify('브라우저 메뉴에서 전체화면을 선택해 주세요.');}});
 $('#printButton').addEventListener('click',()=>window.print());$('#sourcesButton').addEventListener('click',()=>showDialog($('#sourcesModal')));
 $('#copyModalPrompt').addEventListener('click',()=>copyPrompt(activePrompt));
-for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('close',()=>{if(lastFocus instanceof HTMLElement&&lastFocus.isConnected)lastFocus.focus();});
-document.addEventListener('click',event=>{const target=event.target.closest('button');if(!target)return;if(target.dataset.copy)copyPrompt(target.dataset.copy);if(target.dataset.expand)showPrompt(target.dataset.expand);if(target.hasAttribute('data-close'))closeDialog(target.closest('dialog'));if(target.dataset.goto!==undefined){closeDialog($('#tocModal'));go(Number(target.dataset.goto));} });
+for(const dialog of document.querySelectorAll('dialog'))dialog.addEventListener('close',()=>{const opener=dialogOpeners.get(dialog);if(opener instanceof HTMLElement&&opener.isConnected&&!opener.closest('[inert]'))opener.focus();});
+document.addEventListener('click',event=>{const target=event.target.closest('button');if(!target)return;if(target.dataset.copy)copyPrompt(target.dataset.copy);if(target.dataset.expand)showPrompt(target.dataset.expand);if(target.hasAttribute('data-prd-image'))showDialog($('#prdImageModal'));if(target.hasAttribute('data-close'))closeDialog(target.closest('dialog'));if(target.dataset.goto!==undefined){closeDialog($('#tocModal'));go(Number(target.dataset.goto));} });
 window.addEventListener('hashchange',readHash);
 window.addEventListener('beforeprint',()=>{printing=true;update();});window.addEventListener('afterprint',()=>{printing=false;update();});
 hydratePrompts();readHash();document.body.dataset.ready='true';

@@ -6,13 +6,14 @@ const states=slides.map(()=>0);let index=0,overview=false,printing=false,activeP
 // Each dialog remembers its opener so nested PRD views restore focus correctly.
 const dialogOpeners=new WeakMap();
 function notify(text){$('#toast').textContent=text;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,2600);}
-function applyStep(slide,n,complete=false){
+function applyStep(slide,n,complete=false,animate=false){
  slide.dataset.step=String(n);
  if(slide.matches('.planning-motion,.stitch-motion,.has-chat-zoom'))slide.dataset.motionComplete=String(complete);
  slide.querySelectorAll('.reveal[data-reveal-step]').forEach(el=>{const visible=complete||n>=Number(el.dataset.revealStep);el.classList.toggle('is-visible',visible);el.setAttribute('aria-hidden',String(!visible));el.inert=!visible;});
+ if(slide.matches('.has-chat-zoom'))window.week3ShotMorph?.apply(slide,n,complete,animate);
 }
 function update(){
- slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('active',active);slide.setAttribute('aria-hidden',String(!active&&!overview&&!printing));slide.inert=!active&&!overview&&!printing;applyStep(slide,states[i],overview||printing);});
+ slides.forEach((slide,i)=>{const active=i===index,wasActive=slide.classList.contains('active');slide.classList.toggle('active',active);slide.setAttribute('aria-hidden',String(!active&&!overview&&!printing));slide.inert=!active&&!overview&&!printing;applyStep(slide,states[i],overview||printing,active&&wasActive&&!overview&&!printing);});
  const item=meta[index],maximum=item.steps||0,current=states[index];
  $('#count').textContent=String(index+1).padStart(2,'0')+' / '+slides.length;
  $('#progressFill').style.width=((index+1)/slides.length*100)+'%';

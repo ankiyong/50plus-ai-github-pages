@@ -15,13 +15,13 @@ function update(){
  const item=meta[index],maximum=item.steps||0,current=states[index];
  $('#count').textContent=String(index+1).padStart(2,'0')+' / '+slides.length;
  $('#progressFill').style.width=((index+1)/slides.length*100)+'%';
- $('#stepCount').textContent=maximum?'설명 '+current+' / '+maximum:'전체 설명';
+ $('#stepCount').textContent=item.stepLabels?.[current]||(maximum?'설명 '+current+' / '+maximum:'전체 설명');
  $('#prev').disabled=index===0&&current===0;$('#next').disabled=index===slides.length-1&&current===maximum;
- $('#prev').textContent=current>0?'← 이전 설명':'← 이전 장표';$('#next').textContent=current<maximum?'다음 설명 →':index===slides.length-1?'마지막 장표':'다음 장표 →';
+ $('#prev').textContent=current>0?(item.stepLabels?'← '+current+'단계':'← 이전 설명'):'← 이전 장표';$('#next').textContent=current<maximum?(item.stepLabels?(current+2)+'단계 보기 →':'다음 설명 →'):index===slides.length-1?'마지막 장표':'다음 장표 →';
  $('#restart').hidden=maximum===0;$('#restart').disabled=current===0;
  document.querySelectorAll('[data-stage]').forEach(el=>{if(Number(el.dataset.stage)===item.stage)el.setAttribute('aria-current','step');else el.removeAttribute('aria-current');});
  $('#teacherNoteText').textContent=item.note;
- $('#announce').textContent=(index+1)+'장. '+item.title+(maximum?' · 설명 '+current+' / '+maximum:'');
+ $('#announce').textContent=(index+1)+'장. '+item.title+(item.stepLabels?' · '+item.stepLabels[current]:maximum?' · 설명 '+current+' / '+maximum:'');
  try{history.replaceState(null,'','#slide-'+(index+1)+(current?'-step-'+current:''));}catch{}
 }
 function go(n,step=0){index=Math.max(0,Math.min(slides.length-1,n));states[index]=Math.max(0,Math.min(meta[index].steps||0,step));update();if(overview)slides[index].scrollIntoView({block:'start'});else window.scrollTo(0,0);}

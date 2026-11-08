@@ -1,0 +1,34 @@
+/* One PRD writing slide, matching the supplied question/answer layout. */
+.prd-single h2{font-size:3.25cqw;line-height:1.18}
+.prd-single .content{gap:1.4cqw}
+.prd-request{display:flex;align-items:center;gap:.65cqw;border-bottom:.25cqw solid #b89ada;padding-bottom:.85cqw;flex:none}
+.prd-step-badge{flex:none;display:inline-block;background:#15173f;color:white;padding:.5cqw .7cqw;font:900 1.85cqw/1.2 'Pretendard Black';white-space:nowrap}
+.prd-request p{font-size:1.85cqw;line-height:1.4!important;flex:1;min-width:0}
+.prd-request small{font-size:1.15cqw;line-height:1.4;white-space:nowrap;margin-left:.5cqw}
+.prd-workspace{display:grid;grid-template-columns:1.04fr 1fr;gap:2.3cqw;flex:1;min-height:0}
+.prd-questions{background:white;color:#202124;display:flex;flex-direction:column;min-height:0;padding:.8cqw .9cqw}
+.prd-questions h3{font-size:2.35cqw;line-height:1.25;letter-spacing:-.045em;margin:0 0 1.4cqw}
+.prd-question-table{border-collapse:collapse;width:100%;flex:1;font-size:1.55cqw;line-height:1.4;text-align:left}
+.prd-question-table th,.prd-question-table td{padding:.75cqw .1cqw;border-bottom:1px solid #ececef;vertical-align:middle;word-break:keep-all;overflow-wrap:break-word}
+.prd-question-table thead th{font:900 1.55cqw/1.4 'Pretendard Black'}
+.prd-question-table tbody th{font-family:Pretendard;font-weight:400;width:36%;padding-right:.8cqw}
+.prd-question-table tr:last-child th,.prd-question-table tr:last-child td{border-bottom:0}
+.prd-answers{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:0}
+.prd-step-badge.second{background:#176080;border:2px solid #102c3b;font-family:Pretendard;font-weight:400;font-size:1.5cqw;padding:.7cqw .85cqw}
+.prd-answers ol{margin:1.1cqw 0 0;padding-left:3.1cqw;display:flex;flex-direction:column;justify-content:space-around;gap:.6cqw;flex:1;width:100%;font-size:2.05cqw;line-height:1.55;color:#101010}
+.prd-answers li{padding-left:.15cqw;word-break:keep-all;overflow-wrap:break-word}
+.prd-single[data-step="0"] .prd-answers{visibility:hidden;opacity:0}
+body.overview .prd-single .prd-answers{visibility:visible;opacity:1}
+@media screen and (max-width:760px){
+ .prd-single h2{font-size:29px}.prd-single .content{gap:20px}.prd-request{flex-wrap:wrap;gap:10px;border-bottom-width:3px;padding-bottom:14px}
+ .prd-step-badge{font-size:21px;padding:7px 10px}.prd-request p{font-size:18px;flex:1 1 200px}.prd-request small{font-size:12px;margin:0;white-space:normal;width:100%}
+ .prd-workspace{grid-template-columns:1fr;gap:24px;flex:none}.prd-questions{padding:14px 10px}.prd-questions h3{font-size:23px;line-height:1.35;margin:0 0 18px;letter-spacing:-.03em}
+ .prd-question-table{font-size:15px;line-height:1.5}.prd-question-table th,.prd-question-table td{padding:12px 3px}.prd-question-table thead th{font-size:15px}.prd-question-table tbody th{width:38%;padding-right:8px}
+ .prd-step-badge.second{font-size:18px;padding:9px 12px}.prd-answers ol{margin:16px 0 0;padding-left:30px;gap:18px;font-size:19px;line-height:1.6}.prd-answers li{padding-left:2px}
+ .prd-single[data-step="0"] .prd-answers{display:none}
+ body.overview .prd-single .prd-answers{display:flex}
+}
+@media print{
+ .prd-single h2{font-size:3.25cqw!important}
+ .prd-single .prd-answers{display:flex!important;visibility:visible!important;opacity:1!important;transform:none!important}
+}

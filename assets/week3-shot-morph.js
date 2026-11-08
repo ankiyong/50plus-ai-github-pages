@@ -10,9 +10,13 @@
  function prepare(slide) {
   if (records.has(slide)) return records.get(slide);
   const svg = slide.querySelector('.shot-full svg');
-  const detail = slide.querySelector('.shot-zoom svg');
-  if (!svg || !detail) return null;
-  const full = box(svg), focus = box(detail);
+  const details = [...slide.querySelectorAll('.shot-zoom[data-reveal-step]')];
+  if (!svg || !details.length) return null;
+  const full = {box:box(svg), label:svg.getAttribute('aria-label')};
+  const targets = new Map(details.map(figure => {
+   const detail = figure.querySelector('svg');
+   return [Number(figure.dataset.revealStep), {box:box(detail), label:detail.getAttribute('aria-label')}];
+  }));
   const defs = document.createElementNS(namespace, 'defs');
   const clip = document.createElementNS(namespace, 'clipPath');
   const rect = document.createElementNS(namespace, 'rect');
@@ -22,8 +26,7 @@
   group.setAttribute('clip-path', 'url(#' + clip.id + ')');
   while (svg.firstChild) group.append(svg.firstChild);
   svg.append(defs, group);
-  const record = {svg, rect, full, focus, current:full, target:null, frame:0, complete:false,
-   fullLabel:svg.getAttribute('aria-label'), focusLabel:detail.getAttribute('aria-label')};
+  const record = {svg, rect, full, targets, current:full.box, target:null, frame:0, complete:false};
   records.set(slide, record);
   return record;
  }
@@ -37,8 +40,8 @@
  function apply(slide, step, complete, animate) {
   const record = prepare(slide);
   if (!record) return;
-  const target = !complete && step > 0 ? record.focus : record.full;
-  record.svg.setAttribute('aria-label', target === record.focus ? record.focusLabel : record.fullLabel);
+  const target = complete ? record.full : record.targets.get(step) || record.full;
+  record.svg.setAttribute('aria-label', target.label);
   // Repeated updates must not restart an in-flight camera move.
   if (record.target === target && record.complete === complete && (animate || !record.frame)) return;
   cancelAnimationFrame(record.frame);
@@ -46,16 +49,16 @@
   const canAnimate = animate && !complete && !record.complete && !reducedMotion.matches;
   record.target = target;
   record.complete = complete;
-  if (!canAnimate) { draw(record, target); return; }
+  if (!canAnimate) { draw(record, target.box); return; }
   // Start at the current camera position so a quick reverse never jumps.
   const start = [...record.current], began = performance.now();
   function tick(now) {
    const progress = Math.min(1, (now - began) / duration);
    const eased = progress < .5 ? 4 * progress ** 3 : 1 - (-2 * progress + 2) ** 3 / 2;
    if (reducedMotion.matches || progress === 1) {
-    draw(record, target); record.frame = 0; return;
+    draw(record, target.box); record.frame = 0; return;
    }
-   draw(record, start.map((value, i) => value + (target[i] - value) * eased));
+   draw(record, start.map((value, i) => value + (target.box[i] - value) * eased));
    record.frame = requestAnimationFrame(tick);
   }
   record.frame = requestAnimationFrame(tick);

@@ -1,0 +1,94 @@
+/* Slides 1–3 follow the presenter's edited 16:9 reference layouts. */
+@media (min-width:761px), print {
+ .reference-layout>.slidehead{position:absolute;left:3.5%;right:3.5%;top:5.65%}
+ .reference-layout>h2{position:absolute;left:3.5%;right:3.5%;top:10.5%;margin:0}
+ .reference-layout .content{position:static}
+ #slide-1 .lead{position:absolute;left:3.5%;right:3.5%;top:22.4%}
+ #slide-1 .content>.flow{position:absolute;left:3.5%;right:3.5%;top:37.8%;height:29.5%;margin:0}
+ #slide-1 .content>.twocol{position:absolute;left:3.5%;right:3.5%;top:77.8%;height:16.7%;min-height:0}
+ #slide-2 .planning-cards{position:absolute;left:3.5%;right:3.5%;top:26%;height:53.5%}
+ #slide-2 .planning-cards .panel{position:relative;display:block}
+ #slide-2 .planning-cards .panel>*{position:absolute;left:1.65cqw;right:1.65cqw;margin:0}
+ #slide-2 .planning-cards .big-number{top:5.2%}
+ #slide-2 .planning-cards h3{top:33.4%}
+ #slide-2 .planning-cards .card-key{top:55.8%}
+ #slide-2 .planning-cards p:last-child{top:78.4%}
+ #slide-2 .ribbon{position:absolute;left:3.5%;right:3.5%;top:88.2%;margin:0}
+ #slide-3 .definition{position:absolute;left:3.5%;right:3.5%;top:20.4%}
+ #slide-3 .flow{position:absolute;left:3.5%;right:3.5%;top:34.5%;height:35%;margin:0}
+ body.overview .reference-layout{min-height:0;aspect-ratio:16/9}
+}
+
+/* Slide 4: a long return to planning versus a short, focused improvement loop. */
+.planning-motion .content{justify-content:space-between;gap:1.4cqw}
+.planning-motion .motion-comparison{display:grid;gap:1.4cqw;margin:auto 0;width:100%}
+.planning-motion .motion-lane{display:grid;grid-template-columns:17% 1fr;gap:1.5cqw;padding:1.25cqw 1.5cqw;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);background:#fffef7}
+.planning-motion .motion-lane--clear{background:#dbf6f8}
+.planning-motion .motion-label{padding-top:.7cqw}
+.planning-motion .motion-label h3{font-size:1.8cqw;line-height:1.4;margin:0 0 .7cqw}
+.planning-motion .motion-label p{font-size:1.25cqw;line-height:1.6}
+.planning-motion .motion-track{position:relative;min-width:0;height:12.5cqw}
+.planning-motion .motion-nodes{position:relative;z-index:1;display:flex;justify-content:space-between;gap:0}
+.planning-motion .motion-node{width:25%;height:6.25cqw;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6cqw;background:#fff;border:2px solid var(--ink);text-align:center;padding:.4cqw;box-shadow:2px 2px 0 var(--ink)}
+.planning-motion .motion-node strong{font-size:1.65cqw;line-height:1.3}
+.planning-motion .motion-node span{font-size:1.2cqw;line-height:1.4}
+.planning-motion .motion-node--mismatch{background:#ffe2c8;border-color:#9b420d;color:#813300}
+.planning-motion .motion-lane--clear .motion-node{width:22%}
+.planning-motion .motion-lane--clear .motion-node strong{font-size:1.45cqw}
+.planning-motion .motion-node--improve{background:#fff09a}
+.planning-motion .motion-lines{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;color:#9b420d}
+.planning-motion .motion-lane--clear .motion-lines{color:#16677c}
+.planning-motion .motion-stroke{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:0}
+.planning-motion .motion-spark{fill:none;stroke:var(--yellow);stroke-width:7;stroke-linecap:round;stroke-dasharray:.04 .96;opacity:0}
+.planning-motion .motion-return{position:absolute;left:0;right:0;bottom:0;text-align:center;font:900 1.4cqw/1.4 'Pretendard Black';color:#813300}
+.planning-motion .motion-lane--clear .motion-return{left:46%;font-size:1.2cqw;color:#16677c}
+.planning-motion .motion-return .mobile-turn{display:none}
+.planning-motion .motion-caption{display:none}
+.planning-motion[data-step="0"] .motion-caption[data-caption="0"],
+.planning-motion[data-step="1"] .motion-caption[data-caption="1"],
+.planning-motion[data-step="2"] .motion-caption[data-caption="2"],
+.planning-motion[data-step="3"] .motion-caption[data-caption="3"]{display:block}
+.planning-motion[data-step="2"] .motion-node--start,
+.planning-motion[data-step="3"] .motion-node--start{border-color:#9b420d;background:#ffe2c8}
+.planning-motion.active .is-visible .motion-stroke{animation:week3-route-draw .85s ease-out both}
+.planning-motion.active .is-visible .motion-spark{animation:week3-route-travel 1.35s ease-in-out both}
+.planning-motion.active .is-visible .motion-stroke--second{animation-delay:.3s}
+.planning-motion.active .is-visible .motion-stroke--third{animation-delay:.6s}
+.planning-motion.active .is-visible .motion-stroke--improve{animation-delay:1s}
+.planning-motion .reveal{transform:none}
+@keyframes week3-route-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes week3-route-travel{0%{stroke-dashoffset:1;opacity:0}10%,85%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+/* Overview and print show the complete explanation without playing motion. */
+.planning-motion[data-motion-complete="true"] .motion-caption{display:none}
+.planning-motion[data-motion-complete="true"] .motion-caption[data-caption="3"]{display:block}
+.planning-motion[data-motion-complete="true"] .motion-stroke{animation:none;stroke-dashoffset:0}
+.planning-motion[data-motion-complete="true"] .motion-spark{animation:none;opacity:0}
+.planning-motion[data-motion-complete="true"] .motion-node--start{border-color:#9b420d;background:#ffe2c8}
+@media (prefers-reduced-motion:reduce){
+ .planning-motion .reveal{transition:none}
+ .planning-motion.active .is-visible .motion-stroke,.planning-motion.active .is-visible .motion-spark{animation:none}
+}
+@media screen and (max-width:760px){
+ .reference-layout .flow>.arrow{align-self:center;flex:none}
+ .planning-motion .content{gap:20px}
+ .planning-motion .motion-comparison{gap:20px;margin:0}
+ .planning-motion .motion-lane{display:block;padding:18px}
+ .planning-motion .motion-label{padding:0;margin-bottom:20px}
+ .planning-motion .motion-label h3{font-size:21px;margin-bottom:6px}
+ .planning-motion .motion-label p{font-size:15px}
+ .planning-motion .motion-track{height:auto}
+ .planning-motion .motion-nodes{flex-direction:column;gap:28px}
+ .planning-motion .motion-node,.planning-motion .motion-lane--clear .motion-node{position:relative;width:100%;height:auto;min-height:90px;padding:14px;gap:8px}
+ .planning-motion .motion-node strong,.planning-motion .motion-lane--clear .motion-node strong{font-size:19px}
+ .planning-motion .motion-node span{font-size:15px}
+ .planning-motion .motion-node+.motion-node:before{content:'↓';position:absolute;top:-29px;font:900 22px/1 'Pretendard Black';color:#7950b5}
+ .planning-motion .motion-lines{display:none}
+ .planning-motion .motion-return,.planning-motion .motion-lane--clear .motion-return{position:static;margin-top:20px;font-size:16px;line-height:1.5}
+ .planning-motion .motion-return .mobile-turn{display:inline}
+}
+@media print{
+ .planning-motion .motion-caption{display:none!important}
+ .planning-motion .motion-caption[data-caption="3"]{display:block!important}
+ .planning-motion .motion-stroke{animation:none!important;stroke-dashoffset:0!important}
+ .planning-motion .motion-spark{display:none}
+}

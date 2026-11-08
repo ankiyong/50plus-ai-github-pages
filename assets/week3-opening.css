@@ -59,7 +59,7 @@
 @keyframes week3-route-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
 @keyframes week3-route-travel{0%{stroke-dashoffset:1;opacity:0}10%,85%{opacity:1}100%{stroke-dashoffset:0;opacity:0}}
 /* Overview and print show the complete explanation without playing motion. */
-.planning-motion[data-motion-complete="true"] .motion-caption{display:none}
+.planning-motion[data-motion-complete="true"] .motion-caption[data-caption]{display:none}
 .planning-motion[data-motion-complete="true"] .motion-caption[data-caption="3"]{display:block}
 .planning-motion[data-motion-complete="true"] .motion-stroke{animation:none;stroke-dashoffset:0}
 .planning-motion[data-motion-complete="true"] .motion-spark{animation:none;opacity:0}

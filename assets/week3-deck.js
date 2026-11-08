@@ -8,7 +8,7 @@ const dialogOpeners=new WeakMap();
 function notify(text){$('#toast').textContent=text;$('#toast').hidden=false;clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').hidden=true,2600);}
 function applyStep(slide,n,complete=false){
  slide.dataset.step=String(n);
- if(slide.classList.contains('planning-motion'))slide.dataset.motionComplete=String(complete);
+ if(slide.matches('.planning-motion,.stitch-motion'))slide.dataset.motionComplete=String(complete);
  slide.querySelectorAll('.reveal[data-reveal-step]').forEach(el=>{const visible=complete||n>=Number(el.dataset.revealStep);el.classList.toggle('is-visible',visible);el.setAttribute('aria-hidden',String(!visible));el.inert=!visible;});
 }
 function update(){

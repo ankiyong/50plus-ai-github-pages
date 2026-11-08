@@ -8,6 +8,8 @@
  .stitch-overview .flow{position:absolute;left:3.5%;right:3.5%;top:39.8%;height:35%;margin:0}
  .stitch-motion .stitch-tool-link{position:absolute;right:2.4%;top:18%;margin:0}
  .stitch-motion .stitch-stage{position:absolute;left:3.5%;right:1.6%;top:29.5%;bottom:6.8%}
+ .stitch-motion .stitch-pipeline>.stitch-column:first-child,.stitch-motion .stitch-pipeline>.stitch-column:last-child{align-self:stretch}
+ .stitch-motion .stitch-paper,.stitch-motion .stitch-preview{flex:1;height:auto}
  body.overview .stitch-overview,body.overview .stitch-motion{min-height:0;aspect-ratio:16/9}
 }
 .stitch-stage{display:flex;flex-direction:column;justify-content:space-between;gap:1.5cqw;padding:2.1cqw;background:#176080;border:2px solid #102c3b;color:#fff}

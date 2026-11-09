@@ -10,6 +10,7 @@
  .stitch-motion .stitch-stage{position:absolute;left:3.5%;right:1.6%;top:29.5%;bottom:6.8%}
  .stitch-motion .stitch-pipeline>.stitch-column:first-child,.stitch-motion .stitch-pipeline>.stitch-column:last-child{align-self:stretch}
  .stitch-motion .stitch-paper,.stitch-motion .stitch-preview{flex:1;height:auto}
+ .stitch-motion .stitch-engine{padding-top:3.3cqw}
  body.overview .stitch-overview,body.overview .stitch-motion{min-height:0;aspect-ratio:16/9}
 }
 .stitch-stage{display:flex;flex-direction:column;justify-content:space-between;gap:1.5cqw;padding:2.1cqw;background:#176080;border:2px solid #102c3b;color:#fff}
@@ -22,11 +23,9 @@
 .stitch-paper ul{padding-left:1.1em;font-size:1.2cqw;line-height:1.9}
 .stitch-paper .stitch-reference{margin-top:auto;background:#e6d8ff;padding:.8cqw;border-left:4px solid #8952d0;font-size:1.15cqw;line-height:1.6}
 .stitch-engine{align-items:center;text-align:center}
-.stitch-engine-mark{position:relative;width:100%;aspect-ratio:1.15;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8cqw;background:#f0e7ff;border:2px solid var(--ink);box-shadow:4px 4px 0 #102c3b;color:var(--ink);transition:background .45s,color .45s}
+.stitch-engine-mark{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8cqw;color:#fff}
 .stitch-engine-mark strong{font-size:2.2cqw}
-.stitch-engine-icon{display:grid;grid-template-columns:repeat(2,1fr);gap:.25cqw;width:3.2cqw;height:3.2cqw;transform:rotate(-8deg)}
-.stitch-engine-icon i{background:#8952d0;border:1px solid var(--ink)}
-.stitch-engine-icon i:nth-child(2){background:#ffe43e}.stitch-engine-icon i:nth-child(3){background:#23d7e6}.stitch-engine-icon i:nth-child(4){background:#fffef7}
+.stitch-engine-logo{width:5.5cqw;height:5.5cqw;border-radius:22%}
 .stitch-engine p{font-size:1.15cqw;line-height:1.6}
 .stitch-connector{width:100%;height:2cqw;overflow:visible}
 .stitch-connector path{fill:none;stroke:#ffe43e;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
@@ -51,7 +50,6 @@
 .stitch-caption{display:none;gap:1cqw;align-items:center;font-size:1.5cqw;line-height:1.55}
 .stitch-caption b{flex:none;padding:.4cqw .7cqw;background:#ffe43e;color:var(--ink);font-size:1.3cqw}
 .stitch-motion[data-step="0"] .stitch-caption[data-caption="0"],.stitch-motion[data-step="1"] .stitch-caption[data-caption="1"],.stitch-motion[data-step="2"] .stitch-caption[data-caption="2"],.stitch-motion[data-step="3"] .stitch-caption[data-caption="3"]{display:flex}
-.stitch-motion[data-step="1"] .stitch-engine-mark,.stitch-motion[data-step="2"] .stitch-engine-mark,.stitch-motion[data-step="3"] .stitch-engine-mark,.stitch-motion[data-motion-complete="true"] .stitch-engine-mark{background:#8952d0;color:white}
 .stitch-motion[data-step="2"] .stitch-preview-button,.stitch-motion[data-step="3"] .stitch-preview-button,.stitch-motion[data-motion-complete="true"] .stitch-preview-button{top:49%;background:#ffe43e;box-shadow:2px 2px 0 var(--ink)}
 .stitch-motion[data-step="2"] .stitch-preview-result,.stitch-motion[data-step="3"] .stitch-preview-result,.stitch-motion[data-motion-complete="true"] .stitch-preview-result{top:69%}
 .stitch-motion[data-step="2"] .stitch-preview-body,.stitch-motion[data-step="3"] .stitch-preview-body,.stitch-motion[data-motion-complete="true"] .stitch-preview-body{background:#dbf6f8}
@@ -78,7 +76,7 @@
  .stitch-paper strong{font-size:22px}.stitch-paper ul{font-size:16px}
  .stitch-paper .stitch-reference{padding:12px;font-size:15px}
  .stitch-engine-mark{width:150px;gap:12px}.stitch-engine-mark strong{font-size:27px}
- .stitch-engine-icon{width:44px;height:44px;gap:4px}.stitch-engine p{font-size:16px}
+ .stitch-engine-logo{width:64px;height:64px}.stitch-engine p{font-size:16px}
  .stitch-motion .stitch-connector.reveal{width:32px;height:22px;transform:rotate(90deg);flex:none}
  .stitch-preview{height:310px}.stitch-windowbar{height:28px;padding:0 10px;gap:5px;font-size:11px}.stitch-windowbar i{width:5px;height:5px}
  .stitch-preview-empty{inset:28px 0 0;font-size:18px}.stitch-preview-body{top:28px;padding:12px}

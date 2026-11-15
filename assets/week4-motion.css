@@ -1,0 +1,23 @@
+#slide-9 .deployment-diagram { display: block; width: 100%; height: 100%; }
+#slide-9 .deployment-diagram text { font-family: Pretendard, sans-serif; fill: #17173f; }
+#slide-9 .deployment-diagram .heavy { font-family: 'Pretendard Black', Pretendard, sans-serif; font-weight: 900; }
+#slide-9 .deployment-diagram .small { font-size: 19px; fill: #625e77; }
+#slide-9 .deployment-diagram .node-label { font-size: 33px; }
+#slide-9 .deployment-diagram .arrow-label { font-size: 25px; }
+#slide-9 .deployment-diagram .track { fill: none; stroke: #d1c7db; stroke-width: 12; stroke-linejoin: round; stroke-linecap: round; }
+#slide-9 .deployment-diagram .lit { fill: none; stroke-width: 13; stroke-linejoin: round; stroke-linecap: round; }
+#slide-9 .deployment-diagram .request { stroke: #7c4abd; }
+#slide-9 .deployment-diagram .response { stroke: #17afc4; }
+#slide-9 .deployment-diagram .scene-group { transition: opacity .35s ease; }
+#slide-9 .deployment-diagram .focus-ring { fill: #e7d9fa; fill-opacity: .35; stroke: #7c4abd; stroke-width: 2; opacity: 0; rx: 22; }
+#slide-9 .deployment-diagram .particle { filter: drop-shadow(0 3px 4px #17173f33); }
+@media (prefers-reduced-motion: reduce) {
+  #slide-9 .deployment-diagram .scene-group { transition: none; }
+}
+@media print {
+  #slide-9 .deployment-diagram .scene-group { opacity: 1 !important; transition: none; }
+  #slide-9 .deployment-diagram .lit { opacity: 1 !important; }
+  #slide-9 .deployment-diagram .particle,
+  #slide-9 .deployment-diagram .focus-ring,
+  #slide-9 #w4d-server-pulse { opacity: 0 !important; }
+}

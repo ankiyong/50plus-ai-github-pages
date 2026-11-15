@@ -1,0 +1,39 @@
+.week4-shot-morph {
+  position: absolute;
+  overflow: hidden;
+  z-index: 12;
+  pointer-events: none;
+  isolation: isolate;
+  contain: layout paint;
+}
+
+.week4-shot-morph[hidden] {
+  display: none !important;
+}
+
+.week4-shot-morph__image {
+  position: absolute;
+  inset: 0 auto auto 0;
+  display: block;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media print {
+  .week4-shot-morph {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .week4-shot-morph__image {
+    will-change: auto;
+  }
+}

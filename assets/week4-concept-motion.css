@@ -1,0 +1,9 @@
+.concept-diagram{display:block;width:100%;height:100%}
+.concept-diagram .c-text{font-family:Pretendard,sans-serif;font-weight:400}
+.concept-diagram .c-heavy{font-family:'Pretendard Black',Pretendard,sans-serif;font-weight:900}
+.concept-diagram .c-group,.concept-diagram [data-focus],.concept-diagram [data-show]{transition:opacity .6s ease,transform .8s cubic-bezier(.22,.7,.25,1);transform-box:fill-box;transform-origin:center}
+.concept-diagram .c-arrow{fill:none;stroke-linecap:butt;stroke-linejoin:round}
+.concept-diagram .c-packets{pointer-events:none;filter:drop-shadow(0 2px 3px #17173f55)}
+.concept-diagram.motion-immediate *{transition:none!important}
+@media(prefers-reduced-motion:reduce){.concept-diagram *{transition:none!important}}
+@media print{.concept-diagram .c-packets{display:none!important}.concept-diagram *{transition:none!important}}

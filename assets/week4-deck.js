@@ -32,9 +32,10 @@ function applyStep(i,complete=false,animate=true){
  const slide=slides[i],item=meta[i],n=states[i];slide.dataset.step=String(n);
  if(item.morph)window.week4ShotMorph?.apply(slide,n,complete,animate);
  if(i===8)window.week4Motion?.apply(n,complete,animate);
+ if(item.motion==='database')window.week4DbMotion?.apply(n,complete,animate);
  applyFocus(slide,item,n,complete,animate);
 }
-function pause(){window.week4Motion?.pause();window.week4ShotMorph?.pause();}
+function pause(){window.week4Motion?.pause();window.week4ShotMorph?.pause();window.week4DbMotion?.pause();}
 function update(){
  const changed=rendered!==index;
  if(changed||overview||printing)pause();

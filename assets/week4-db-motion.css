@@ -1,0 +1,17 @@
+.db-comparison-diagram{display:block;width:100%;height:100%}
+.db-comparison-diagram text{font-family:Pretendard,sans-serif;fill:#17173f}
+.db-comparison-diagram .heavy{font-family:'Pretendard Black',Pretendard,sans-serif;font-weight:900}
+.db-comparison-diagram .eyebrow{font-size:20px;fill:#7c4abd}
+.db-comparison-diagram .course,.db-comparison-diagram .footer-note{font-size:20px;fill:#625e77}
+.db-comparison-diagram .subtext{font-size:23px;fill:#625e77}
+.db-comparison-diagram .node-title{font-family:'Pretendard Black',Pretendard,sans-serif;font-size:26px;font-weight:900}
+.db-comparison-diagram .node-detail{font-size:19px}
+.db-comparison-diagram .placement{font-size:21px;fill:#625e77}
+.db-comparison-diagram .request-arrow{fill:none;stroke:#7c4abd;stroke-width:5;stroke-linecap:butt;marker-end:url(#w4db-purple-head)}
+.db-comparison-diagram .response-arrow{fill:none;stroke:#129daf;stroke-width:5;stroke-linecap:butt;marker-end:url(#w4db-cyan-head)}
+.db-comparison-diagram .db-lane,.db-comparison-diagram .db-node,.db-comparison-diagram .owner-card{transition:opacity .3s ease}
+.db-comparison-diagram .lane-focus{fill:none;stroke:#8952d0;stroke-width:5;opacity:0;pointer-events:none}
+.db-comparison-diagram .data-packet{pointer-events:none;filter:drop-shadow(0 2px 3px #17173f55)}
+.db-comparison-diagram[data-mode="responsibility"] .owner-card rect{stroke:#17173f;stroke-width:3}
+@media(prefers-reduced-motion:reduce){.db-comparison-diagram .db-lane,.db-comparison-diagram .db-node,.db-comparison-diagram .owner-card{transition:none}}
+@media print{.db-comparison-diagram .db-lane,.db-comparison-diagram .db-node,.db-comparison-diagram .owner-card{opacity:1!important;transition:none}.db-comparison-diagram .data-packet,.db-comparison-diagram .lane-focus{opacity:0!important}}

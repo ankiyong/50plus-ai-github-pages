@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#202048">
+  <meta name="description" content="50플러스 AI 교실 4주차 수강생 실습장. 필수 항목 질문받기, 답변하기, 내 웹페이지 PRD 문서 만들기.">
+  <title>4주차 수강생 실습장 · 50플러스 AI 교실</title>
+  <link rel="stylesheet" href="./assets/week4-practice.css">
+  <script defer src="./assets/week4-practice.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">실습 본문으로 건너뛰기</a>
+<header class="site-header"><div class="header-inner">
+  <div><div class="brand-line"><span class="brand-mark" aria-hidden="true"></span>50플러스 AI 교실 <span class="student-badge">수강생 실습</span></div><h1>4주차 · 내 웹페이지 PRD 만들기</h1></div>
+  <nav class="header-actions" aria-label="수업 이동"><a class="home-link" href="./index.html">주차 선택</a><a class="home-link" href="./50plus_AI_Week4.html">강의안</a><button class="button yellow" type="button" data-download-record>내 실습 기록 저장</button></nav>
+</div></header>
+<div id="storage-warning" class="storage-warning" role="status" hidden>이 브라우저에서는 자동 저장을 사용할 수 없어요. 페이지를 닫기 전에 ‘내 실습 기록 저장’으로 내려받으세요.</div>
+<div class="layout">
+<aside class="sidebar">
+  <h2>오늘의 실습</h2><p class="nav-hint">번호를 눌러 이동해요.<br>내가 만들 웹페이지의 PRD를 준비해요.</p>
+  <ol class="activity-nav">
+    <li><a class="activity-link" href="#activity-1" data-nav="1"><span class="nav-num">1</span><span class="nav-title">필수 항목 질문받기</span><span class="nav-check" aria-label="완료" hidden>✓</span></a></li>
+    <li><a class="activity-link" href="#activity-2" data-nav="2"><span class="nav-num">2</span><span class="nav-title">질문에 답변하기</span><span class="nav-check" aria-label="완료" hidden>✓</span></a></li>
+    <li><a class="activity-link" href="#activity-3" data-nav="3"><span class="nav-num">3</span><span class="nav-title">PRD 문서 만들기</span><span class="nav-check" aria-label="완료" hidden>✓</span></a></li>
+  </ol>
+  <div class="progress-box"><div class="progress-text"><span>완료한 실습</span><span id="progress-text">0 / 3</span></div><div class="progress-track" role="progressbar" aria-label="실습 완료" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0"><div id="progress-fill"></div></div></div>
+  <p class="save-note">편집한 프롬프트·메모·PRD·완료 표시는 이 브라우저에 저장돼요. 다른 기기에서도 보려면 실습 기록을 내려받으세요.</p>
+</aside>
+<main id="main">
+<section class="activity" id="activity-1" aria-labelledby="title-1">
+  <div class="activity-head"><div class="eyebrow">실습 1 / 3 <span>PRD 제작 · 질문</span></div><h2 id="title-1" tabindex="-1">필수 항목 질문받기</h2><p>AI에게 PRD를 작성하기 위해 필요한 정보를 물어봐요.</p></div>
+  <div class="intro-panel"><span class="tag">내가 원하는 웹페이지 만들기</span><h3>먼저 무엇을 만들지 정리해요</h3><p>PRD는 <strong>만들 웹페이지의 목적과 기능을 정리한 문서</strong>예요. AI의 질문에 답하며 내 생각을 구체적으로 정리해요.</p></div>
+  <div class="flow" aria-label="PRD 작성 순서"><span><b>01</b> 질문받기</span><span aria-hidden="true">→</span><span><b>02</b> 답변하기</span><span aria-hidden="true">→</span><span><b>03</b> PRD 만들기</span></div>
+  <div class="work-grid">
+    <div class="panel"><h3>AI의 새 대화에서 시작해요</h3><ol><li>사용하는 AI의 새 대화를 열어요.</li><li>프롬프트를 복사해 AI에게 보내요.</li><li>AI가 물어본 필수 항목을 읽어요.</li></ol><div class="rule">아직 PRD를 완성하는 단계가 아니에요. <strong>내가 답해야 할 질문</strong>을 먼저 받아요.</div></div>
+    <div class="panel prompt-panel">
+      <div class="panel-top"><h3>PRD에 필요한 항목 질문하기</h3><button class="button" type="button" data-copy-prompt="questions" aria-label="PRD에 필요한 항목 질문하기 프롬프트 복사">프롬프트 복사</button></div>
+      <label class="prompt-label" for="prompt-questions">그대로 복사하거나 내 상황에 맞게 고쳐 보내세요.</label><button class="button secondary small reset-prompt" type="button" data-reset="questions">원문으로 되돌리기</button>
+      <textarea id="prompt-questions" class="prompt-edit short" data-prompt="questions" spellcheck="false">웹페이지 prd 문서 작성에 필요한 필수 항목 질문해줘</textarea>
+      <p class="prompt-footer">복사한 프롬프트는 사용하는 AI의 대화창에 붙여넣고 보내세요.</p>
+    </div>
+  </div>
+  <div class="panel result-panel"><h3><label for="note-1">AI가 물어본 질문</label> <span class="optional">선택 기록</span></h3><textarea class="note-area" id="note-1" data-note="1" placeholder="AI가 물어본 항목을 복사해 붙여넣어 보세요."></textarea></div>
+  <div class="criteria"><strong>다음 단계로 넘어가기 전</strong><p>PRD를 만들기 위해 어떤 질문에 답해야 하는지 확인했나요?</p></div>
+  <div class="activity-bottom"><label class="complete-label"><input type="checkbox" data-complete="1"> 이 실습을 마쳤어요</label><div class="page-actions"><a class="button" href="#activity-2">다음 실습</a></div></div>
+</section>
+
+<section class="activity" id="activity-2" aria-labelledby="title-2" hidden>
+  <div class="activity-head"><div class="eyebrow">실습 2 / 3 <span>PRD 제작 · 답변</span></div><h2 id="title-2" tabindex="-1">질문에 답변하기</h2><p>내가 만들 웹페이지를 기준으로, AI가 물어본 항목에 답해요.</p></div>
+  <div class="work-grid">
+    <div class="panel"><h3>같은 대화에서 이어서 답해요</h3><ol><li>AI가 물어본 질문을 하나씩 읽어요.</li><li>내가 만들고 싶은 웹페이지에 맞게 답해요.</li><li>추가 질문이 오면 이어서 답해요.</li></ol><div class="rule">정하지 못한 내용은 <strong>‘아직 미정’</strong>이라고 답하고 AI와 함께 정리해도 좋아요.</div></div>
+    <div class="panel answer-panel"><div class="panel-top"><h3><label for="note-2">질문별 내 답변</label></h3><button class="button" type="button" data-copy-answer disabled>답변 복사</button></div><p class="small answer-help" id="answer-help">AI 대화에서 바로 답해도 좋아요. 아래는 보내기 전에 답변을 정리하는 메모예요.</p><textarea class="note-area answer-area" id="note-2" data-note="2" aria-describedby="answer-help" placeholder="AI의 질문과 내가 생각한 답변을 적어 보세요."></textarea><p class="prompt-footer">답변을 복사한 뒤, 질문을 받았던 AI 대화에 보내세요.</p></div>
+  </div>
+  <details class="details"><summary>1단계에 기록한 질문 보기</summary><p id="saved-questions" class="saved-questions">1단계에서 질문을 기록하면 이곳에서도 볼 수 있어요.</p></details>
+  <div class="criteria"><strong>다음 단계로 넘어가기 전</strong><p>필수 항목에 대한 답변을 AI에게 모두 보냈나요? 답변을 마친 뒤 PRD 작성을 요청해요.</p></div>
+  <div class="activity-bottom"><label class="complete-label"><input type="checkbox" data-complete="2"> 이 실습을 마쳤어요</label><div class="page-actions"><a class="button secondary" href="#activity-1">이전 실습</a><a class="button" href="#activity-3">다음 실습</a></div></div>
+</section>
+
+<section class="activity" id="activity-3" aria-labelledby="title-3" hidden>
+  <div class="activity-head"><div class="eyebrow">실습 3 / 3 <span>PRD 제작 · 문서 정리</span></div><h2 id="title-3" tabindex="-1">PRD 문서 만들기</h2><p>답변을 마친 뒤, 같은 대화에서 PRD 문서로 정리해 달라고 요청해요.</p></div>
+  <div class="work-grid">
+    <div class="panel"><h3>답변 완료 후 보내세요</h3><ol><li>아래 프롬프트를 복사해 같은 AI 대화에 보내요.</li><li>AI가 정리한 PRD가 내 의도와 맞는지 읽어요.</li><li>고칠 부분이 있으면 알려주고 다시 정리해요.</li><li>완성된 PRD를 복사해 보관해요.</li></ol><div class="rule"><strong>코드블럭</strong>은 내용을 복사하기 쉬운 상자 형태로 정리해 달라는 뜻이에요.</div></div>
+    <div class="panel prompt-panel">
+      <div class="panel-top"><h3>답변을 PRD 문서로 정리하기</h3><button class="button" type="button" data-copy-prompt="document" aria-label="답변을 PRD 문서로 정리하기 프롬프트 복사">프롬프트 복사</button></div>
+      <label class="prompt-label" for="prompt-document">답변을 모두 보낸 뒤, 같은 대화에서 이어서 요청해요.</label><button class="button secondary small reset-prompt" type="button" data-reset="document">원문으로 되돌리기</button>
+      <textarea id="prompt-document" class="prompt-edit short" data-prompt="document" spellcheck="false">Prd 문서로 만들어서 코드블럭에 정리해줘.</textarea>
+      <p class="prompt-footer">앞서 답변한 내용이 담긴 PRD를 받을 수 있도록 대화를 이어가세요.</p>
+    </div>
+  </div>
+  <div class="panel result-panel"><div class="panel-top"><h3><label for="my-prd">작성된 내 PRD</label></h3><span class="optional">AI에서 받은 문서 보관</span></div><p class="small prd-help" id="prd-help">AI가 만들어준 PRD 내용을 붙여넣으세요. 내 의도에 맞게 확인하고 수정한 문서를 다음 디자인 단계에 사용해요.</p><textarea id="my-prd" class="prompt-edit long" data-prd spellcheck="false" aria-describedby="prd-help" placeholder="AI가 작성한 PRD 문서 전체를 붙여넣으세요."></textarea><div class="actions"><button class="button" type="button" data-copy-prd disabled>내 PRD 복사</button><button class="button secondary" type="button" data-download-prd disabled>내 PRD 파일 받기</button></div></div>
+  <div class="criteria"><strong>이번 실습의 결과</strong><p>내 웹페이지의 목적과 핵심 기능을 정리한 PRD를 보관했나요? 다음 디자인 단계에서도 이 문서를 사용해요.</p></div>
+  <div class="activity-bottom"><label class="complete-label"><input type="checkbox" data-complete="3"> 이 실습을 마쳤어요</label><div class="page-actions"><a class="button secondary" href="#activity-2">이전 실습</a><button class="button" type="button" data-download-record>실습 기록 저장</button></div></div>
+</section>
+<noscript><div class="panel">실습 단계를 이동하고 프롬프트를 복사하려면 브라우저에서 JavaScript를 켜 주세요.</div></noscript>
+</main></div>
+<footer class="site-footer">내가 생각하고 결정해요. 내 답변을 바탕으로 PRD를 만들어요.</footer>
+<dialog id="copy-dialog" class="copy-dialog" aria-labelledby="copy-title"><h2 id="copy-title">복사할 내용을 선택했어요</h2><p>자동 복사가 되지 않아 내용을 준비했어요. Ctrl+C 또는 기기의 복사 메뉴를 사용하세요.</p><textarea id="copy-text" aria-label="복사할 내용" readonly></textarea><button class="button" type="button" data-close-copy>닫기</button></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+</body></html>

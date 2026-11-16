@@ -1,0 +1,5 @@
+@import url('./week3-practice.css');
+.answer-area{min-height:260px}
+.answer-help,.prd-help{margin:0 0 14px}
+.saved-questions{white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:760px){.activity-nav{grid-template-columns:1fr}.activity-link{min-height:52px}.answer-area{min-height:210px}}
